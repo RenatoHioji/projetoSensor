@@ -7,15 +7,14 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
- 
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+
 
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
     <title>App Sensores</title>
     <script type="text/javascript">
     window.onload = function(){
-        $("#exibeHardware").hide();
         $("#exibeBateria").hide();
+        $("#exibeRede").hide();
         $("#exibeAcelerometro").hide();
         $("#circulo").hide();
 
@@ -27,28 +26,34 @@
         navigator.vibrate([100]);
     }
 
-    function hardware()
-        {
-            navigator.vibrate([300]);
-            $("#exibeHardware").show();
-            $("#exibeBateria").hide();
-            $("#exibeAcelerometro").hide();
-            $("#circulo").hide();
-            var saida = "";
-            saida += "Modelo do Dispositivo: " + device.model;
-            saida += "<br>Sistema Operacional: " + device.platform;
-            saida += "<br>Versão do Sistema Operacional: " + device.version;
-            saida += "<br>Fabricante: " + device.manufacturer;
-            saida += "<br>Serial: " + device.serial;
-            $("#exibeHardware").html(saida);
-            
-        }
+    function rede(){
+        navigator.vibrate([300]);
+        $("#exibeRede").show();
+        $("#exibeBateria").hide();
+        $("#exibeAcelerometro").hide();
+        $("#circulo").hide();
+
+        var rede = navigator.connection.type;
+
+        var tipo = {};
+
+        tipo[Connection.UNKNOW] = "Conexão Desconhecida :(";
+        tipo[Connection.ETHERNET] = "Conexão Cabeada";
+        tipo[Connection.WIFI] = "Conexão WI-FI";
+        tipo[Connection.CELL_2G] = "Conexão 2G";
+        tipo[Connection.CELL_3G] = "Conexão 3G";
+        tipo[Connection.CELL_4G] = "Conexão 4G";
+        tipo[Connection.NONE] = "Nenhuma Conexão";
+
+        $("#exibeRede").html(tipo[rede]);
+    }
     
 
 
 
     function bateria(){
         navigator.vibrate([300]);
+        $("#exibeRede").hide();
         $("#exibeHardware").hide();
         $("#exibeBateria").show();
         $("#exibeAcelerometro").hide();
@@ -68,7 +73,7 @@
 
     function acel(){
         navigator.vibrate([300]);
-        $("#exibeHardware").hide();
+        $("#exibeRede").hide();
         $("#exibeBateria").hide();
         $("#exibeAcelerometro").show();
         $("#circulo").show();
@@ -90,7 +95,6 @@
 
                 novaX = atualX + x;
                 novaY = atualY + y;
-
                 $("#circulo").offset({left:novaX,top:novaY})
             },true)
         }
@@ -126,7 +130,6 @@
             width: 100px;
             height: 100px;
             background-color: azure;
-            text-align: center;
         }
 
 
@@ -141,7 +144,7 @@
         </div>
 
         <div data-role="main" id="conteudo" class="ui-content">
-            <button id="btn1" class="button" onclick="location.href='index.html#hardware'">Hardware</button>
+            <button id="btn1" class="button" onclick="location.href='index.html#hardware'">Hardware/Rede</button>
             <button id="btn7" class="button" onclick="sair()">Sair</button>
         </div>    
 
@@ -152,18 +155,18 @@
 
     <div dara-role="page" id="hardware">
         <div data-role="header">
-            <h1>Sensores Hardware</h1>
+            <h1>Sensores Hardware/Rede</h1>
         </div>
 
         <div data-role="main" id="conteudo" class="ui-content">
             
-            <div id="exibeHardware"></div>
+            <div id="exibeRede"></div>
             <div id="exibeBateria"></div>
             <div id="exibeAcelerometro"></div>
             <div id="circulo"></div>
 
-            <button id="btn2" class="button" onclick="hardware()">Exibe Hardware</button>
             <button id="btn4" class="button" onclick="bateria()">Exibe Bateria</button>
+            <button id="btn3" onclick="rede()">Exibe Rede</button>
             <button id="btn5" class="button" onclick="acel()">Exibe Acelerômetro</button>
             <button id="btn6" class="button" onclick="location.href='index.html#principal'">Voltar</button>
         </div>    
