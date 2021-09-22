@@ -116,13 +116,13 @@
 
     </script>
 
-    <style>
+ <style>
         #rodape{
             position: absolute;
             width: 100%;
             bottom: 0;
+            color: #047aa1;
         }
-        
         #circulo{
             border-radius: 100%;
             border: 5px solid #1bbaeb;
@@ -136,42 +136,36 @@
 
 </head>
 
-<body>
-    <div dara-role="page" id="principal">
+<body class="corpo">
+    <div dara-role="page" id="principal" >
         <div data-role="header">
-            <h1>Sensores</h1>
         </div>
 
-        <div data-role="main" id="conteudo" class="ui-content">
-            <button id="btn1" class="button" onclick="location.href='index.html#hardware'">Hardware/Rede</button>
-            <button id="btn7" class="button" onclick="sair()">Sair</button>
-        </div>    
-
         <div data-role="footer" id="rodape">
-            <h1>App Sensores 1.0</h1>
+            <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">App Sensores 1.0</h1>
         </div> 
     </div>
 
     <div dara-role="page" id="hardware">
         <div data-role="header">
-            <h1>Sensores Hardware/Rede</h1>
+            <h1 class="font"style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 18px;color:#047aa1;">Sensores Mobile</h1>
         </div>
 
-        <div data-role="main" id="conteudo" class="ui-content">
+        <div data-role="main" id="conteudo" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;"class="ui-content">
             
             <div id="exibeRede"></div>
             <div id="exibeBateria"></div>
             <div id="exibeAcelerometro"></div>
             <div id="circulo"></div>
 
-            <button id="btn4" class="button" onclick="bateria()">Exibe Bateria</button>
-            <button id="btn3" onclick="rede()">Exibe Rede</button>
-            <button id="btn5" class="button" onclick="acel()">Exibe Acelerômetro</button>
-            <button id="btn6" class="button" onclick="location.href='index.html#principal'">Voltar</button>
+            <button id="btn4" class="button" onclick="bateria()"style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">Exibe Bateria <img src="img/charging.png" style="bottom:30%; right: 27.5%; position: absolute;"></button>
+            <button id="btn3" class="button" onclick="rede()" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">Exibe Rede <img src="img/rede.png" style="bottom:30%; right: 27.5%; position: absolute;"></button>
+            <button id="btn5" class="button" onclick="acel()" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">Exibe Acelerômetro <img src="img/velocimetro.png" style="bottom:30%; right: 21%; position: absolute;"></button>
+            <button id="btn6" class="button" onclick="location.href='index.html#principal'" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">Voltar</button>
         </div>    
 
         <div data-role="footer" id="rodape">
-            <h1>App Sensores 1.0</h1>
+            <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:#047aa1;">App Sensores 1.0</h1>
         </div> 
     </div>
 
